@@ -4,6 +4,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
@@ -12,7 +13,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd">
     <!-- 扫描com.shsxt.crm 下包 -->
     <context:component-scan base-package="com.shsxt" />
     <aop:aspectj-autoproxy />
@@ -51,6 +54,11 @@
             <bean class="com.shsxt.crm.interceptors.NoAccessInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!--
+          开启定时任务注解驱动  应用程序支持注解形式 配置定时任务
+       -->
+    <task:annotation-driven/>
 
 
 </beans>
